@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #ffe4e1; /* Light pink background */
+        }
+
+        header {
+            background: #ff69b4; /* Hot pink background */
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff; /* White background for sections */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for sections */
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            color: #ff1493; /* Deep pink headings */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%; /* Make profile image circular */
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0; /* Regular images for projects */
+        }
+
+        .project {
+            margin-bottom: 20px;
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        footer {
+            background: #ff69b4; /* Hot pink background */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        a {
+            color: #ff1493; /* Deep pink links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header nav ul li {
+                margin: 10px 0;
+            }
+
+            section {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            footer {
+                position: relative;
+            }
+
+            .project img {
+                max-width: 100%;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: 15% auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#cv">CV/Resume</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home">
+        <img src="assets/images/profile1.png" alt="Professional Photo" width="200px" style="margin-left: 50px">
+        <h1>Welcome to My Portfolio</h1>
+        <p>I'm Jenniffer Acar, 21 yrs old. This is my project for ITEC 106 of portfolio.</p>
+    </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p style="font-weight: bold">Background information</p>
+        <p style="text-align: justify">I'm curious and driven mindset, I'm always seeking to expand my knowledge and stay at the forefront of the latest trends and advancements in the tech industry. My enthusiasm for learning and growth has led me to develop a strong foundation in various aspects of IT, from programming and web development. As a dedicated and results-driven individual, I'm excited to leverage my skills and expertise to make a positive impact in the tech industry. I'm committed to collaborating with others, sharing my knowledge, and continuously improving my craft to drive meaningful change and innovation</p>
+        <p style="font-weight: bold">Introduction about yourself</p>
+        <p style="text-align: justify">I'm Jennifer Acar, a 21-year-old IT enthusiast with a passion for innovation and problem-solving. I'm a curious and driven individual who loves to learn and stay up-to-date with the latest trends and advancements in technology. I'm excited to share my skills and knowledge with others and make a positive impact in the tech industry.</p>
+        <p style="font-weight: bold">Personal Interest</p>
+        <p style="text-align: justify">My personal interest in my whole life is business and entrepreneurship, but life circumstances led you to pursue a career in Information Technology instead. It's not uncommon for people to have multiple interests and passions, and sometimes, circumstances can dictate the path we take.Remember, it's never too late to pursue your passions, and you don't have to choose between IT and business. You can find ways to incorporate both into your life and career.</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="project">
+                <h3>Health Care System</h3>
+                <img src="assets/images/project1.jpeg" alt="Project 1 Image" onclick="openModal(this)">
+                <p style="text-align: justify">The healthcare system is a vital sector that provides essential medical services to individuals and communities. It encompasses a wide range of organizations, including hospitals, clinics, medical research institutions, and healthcare providers.</p>
+                <a href="assets/images/project1.jpeg">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Health Care System</h3>
+                <img src="assets/images/project22.jpeg" alt="Project 2 Image" onclick="openModal(this)">
+                <p style="text-align: justify">The healthcare system is implemented using C# programming language to ensure efficient management of medical services. It includes functionalities for patient records, appointment scheduling, billing, and reporting, providing a robust and scalable solution for healthcare providers.</p>
+                <a href="assets/images/project22.jpeg">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Book Tinker</h3>
+                <img src="assets/images/pic4.jpeg" alt="Project 3 Image" onclick="openModal(this)">
+                <p style="text-align: justify">A Book Tinker is a creative and innovative platform that allows users to reimagine and recreate their favorite books in a digital format. This interactive tool enables readers to become authors, designers, and publishers, giving them the freedom to experiment with storytelling, art, and design.</p>
+                <a href="assets/images/pic4.jpeg">View Project</a>
+            </div>
+            <div class="project">
+                <h3>E-Voting System</h3>
+                <img src="assets/images/pic3.jpeg" alt="Project 4 Image" onclick="openModal(this)">
+                <p style="text-align: justify">The Central Student Government E-Voting System is a web-based platform designed to facilitate secure, efficient, and transparent elections for student government positions. The system enables students to cast their votes online, ensuring convenience, accessibility, and increased participation in the electoral process.</p>
+                <a href="assets/images/pic3.jpeg">View Project</a>
+            </div>
+        </div>
+    </section>
+    <section id="cv">
+        <h2>CV/Resume</h2>
+        <a href="resume.pdf" download>Download my Resume</a>
+    </section>
+    <section id="contact">
+                <h2>Contact Information</h2>
+        <p>Email: <a href="mailto:jennifferacar1030@gmail.com">jennifferacar1030@gmail.com</a></p>
+        <p>Phone: 09665342926</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 Jenniffer Acar. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modal-img");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
